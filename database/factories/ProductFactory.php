@@ -11,6 +11,6 @@ $factory->define(\App\Product::class, function (Faker $faker) {
         'description'=>$faker->sentence,
         'body'=>$faker->paragraph(5, true),
         'slug'=>$faker->slug,
-        'price'=>$faker->randomFloat(2,10)
+        'price'=>$faker->randomFloat(2, 1, 10)
     ];
 });
