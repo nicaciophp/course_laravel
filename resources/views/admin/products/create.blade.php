@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
-    <h1>Criar Loja</h1>
-    <form action="{{route('admin.stores.store')}}" method="post">
-        <input type="hidden" name="_token" value="{{csrf_token()}}">
-        {{--    @csrf--}}
+    <h1>Criar Produto</h1>
+    <form action="{{route('admin.products.store')}}" method="post">
+        @csrf
         <div class="form-group">
-            <label for="">Nome Loja</label>
+            <label for="">Nome Produto</label>
             <input type="text" name="name" class="form-control @error('name') is-invalid @enderror" value="{{old('name')}}">
             @error('name')
-                <div class="invalid-feedback">
-                    {{$message}}
-                </div>
+            <div class="invalid-feedback">
+                {{$message}}
+            </div>
             @enderror
         </div>
         <div class="form-group">
@@ -24,18 +23,18 @@
             @enderror
         </div>
         <div class="form-group">
-            <label for="">Telefone</label>
-            <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" value="{{old('phone')}}">
-            @error('phone')
+            <label for="">Conteúdo</label>
+            <textarea name="body" id="" cols="30" rows="10" class="form-control @error('body') is-invalid @enderror">{{old('body')}}</textarea>
+            @error('body')
             <div class="invalid-feedback">
                 {{$message}}
             </div>
             @enderror
         </div>
         <div class="form-group">
-            <label for="">Celular / Whatsapp</label>
-            <input type="text" name="mobile_phone" class="form-control @error('mobile_phone') is-invalid @enderror" value="{{old('mobile_phone')}}">
-            @error('mobile_phone')
+            <label for="">Preço</label>
+            <input type="text" name="price" class="form-control @error('price') is-invalid @enderror" value="{{old('price')}}">
+            @error('price')
             <div class="invalid-feedback">
                 {{$message}}
             </div>
@@ -46,8 +45,10 @@
             <input type="text" name="slug" class="form-control">
 
         </div>
+
+        </div>
         <div>
-            <button type="submit" class="btn btn-lg btn-success">Criar Loja</button>
+            <button type="submit" class="btn btn-lg btn-success">Criar Produto</button>
         </div>
     </form>
 
