@@ -33,9 +33,9 @@ class ProductController extends Controller
      */
     public function create()
     {
-        $stores = \App\Store::all(['id', 'name']);
+        $categories = \App\Category::all(['id', 'name']);
 
-        return view('admin.products.create', compact('stores'));
+        return view('admin.products.create', compact('categories'));
     }
 
     /**
@@ -76,7 +76,9 @@ class ProductController extends Controller
     public function edit($product)
     {
         $product = $this->product->findOrFail($product);
-        return view('admin.products.edit', compact('product'));
+        $categories = \App\Category::all(['id', 'name']);
+
+        return view('admin.products.edit', compact('product', 'categories'));
     }
 
     /**
