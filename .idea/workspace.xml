@@ -22,9 +22,9 @@
     <list default="true" id="1388ae76-6a4e-434a-b338-6b392335bf7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/create.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -194,7 +194,7 @@
       <workItem from="1600361903197" duration="9600000" />
       <workItem from="1600552610086" duration="16170000" />
       <workItem from="1600710540832" duration="5675000" />
-      <workItem from="1600771661758" duration="1458000" />
+      <workItem from="1600771661758" duration="7610000" />
     </task>
     <servers />
   </component>
@@ -220,6 +220,10 @@
     </state>
     <state x="1856" y="196" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600361960393" />
     <state x="2014" y="232" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1440.860/1440.0.1600.860@1440.0.1600.860" timestamp="1600349042483" />
+    <state x="1803" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600798116238">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1803" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600798116238" />
     <state x="1829" y="120" key="FileChooserDialogImpl" timestamp="1600556305866">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>

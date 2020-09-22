@@ -20,10 +20,19 @@
             <label for="">Conteúdo</label>
             <textarea name="body" id="" cols="30" rows="10" class="form-control">{{$product->body}}</textarea>
         </div>
+
         <div class="form-group">
             <label for="">Preço</label>
             <input type="text" name="price" class="form-control" value="{{$product->price}}">
 
+        </div>
+        <div class="form-group">
+            <label for="">Categorias</label>
+            <select name="categories[]" id="" multiple class="form-control">
+                @foreach($categories as $category)
+                    <option value="{{$category->id}}" @if($product->categories->contains($category)) selected @endif>{{$category->name}}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="">Slug</label>
