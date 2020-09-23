@@ -22,9 +22,18 @@
     <list default="true" id="1388ae76-6a4e-434a-b338-6b392335bf7a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ProductController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Product.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/StoreController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/StoreController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/LoginController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Middleware/UserHasStoreMiddleware.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Middleware/UserHasStoreMiddleware.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/ProductRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/ProductRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Requests/StoreRequest.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Requests/StoreRequest.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Store.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Store.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/products/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/create.blade.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/products/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/stores/create.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/stores/create.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/stores/edit.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/stores/edit.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/stores/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/admin/stores/index.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -160,12 +169,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\willp\course_laravel\app\Http\Controllers\Admin" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\willp\course_laravel\resources\views\admin" />
       <recent name="C:\Users\willp\course_laravel\resources\views\admin\stores" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\willp\course_laravel\app\Http\Controllers\Admin" />
     </key>
   </component>
   <component name="RunManager">
@@ -194,7 +203,8 @@
       <workItem from="1600361903197" duration="9600000" />
       <workItem from="1600552610086" duration="16170000" />
       <workItem from="1600710540832" duration="5675000" />
-      <workItem from="1600771661758" duration="7610000" />
+      <workItem from="1600771661758" duration="8332000" />
+      <workItem from="1600879907782" duration="10606000" />
     </task>
     <servers />
   </component>
@@ -224,11 +234,19 @@
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="1803" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600798116238" />
+    <state x="1779" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog" timestamp="1600884950014">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1779" y="120" key="#com.jetbrains.php.actions.copyPaste.importReferences.PhpImportReferencesDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600884950014" />
     <state x="1829" y="120" key="FileChooserDialogImpl" timestamp="1600556305866">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1600103906590" />
     <state x="1829" y="120" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600556305866" />
+    <state x="1840" y="179" key="NewPhpClassDialog" timestamp="1600884929001">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1840" y="179" key="NewPhpClassDialog/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600884929001" />
     <state x="1883" y="288" key="NewPhpFileDialog" timestamp="1600772289674">
       <screen x="1366" y="0" width="1366" height="728" />
     </state>
@@ -237,5 +255,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="339" y="162" key="run.anything.popup/0.0.1366.728/1366.0.1366.728@0.0.1366.728" timestamp="1599593112881" />
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup" timestamp="1600880361380">
+      <screen x="1366" y="0" width="1366" height="728" />
+    </state>
+    <state x="1712" y="49" width="672" height="678" key="search.everywhere.popup/0.0.1366.728/1366.0.1366.728@1366.0.1366.728" timestamp="1600880361380" />
   </component>
 </project>

@@ -15,7 +15,7 @@ class UserHasStoreMiddleware
      */
     public function handle($request, Closure $next)
     {
-        if (auth()->user()->store->count()){
+        if (auth()->user()->store){
             flash('Você já possui uma loja!')->warning();
             return redirect()->route('admin.stores.index');
         }

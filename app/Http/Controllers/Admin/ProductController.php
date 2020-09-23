@@ -5,10 +5,12 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Product;
 use Illuminate\Http\Request;
+use App\Traits\UploadTrait;
 use App\Http\Requests\ProductRequest;
 
 class ProductController extends Controller
 {
+    use UploadTrait;
     private $product;
     public function __construct(Product $product)
     {
@@ -56,7 +58,7 @@ class ProductController extends Controller
         $product->categories()->sync($data['categories']);
 
         if ($request->hasFile('photos')){
-            $images = $this->imageUpload($request, 'image');
+            $images = $this->imageUpload($request->file('photos'), 'image');
             //inserção destas imagens na base
             $product->photos()->createMany($images);
         }
@@ -88,7 +90,7 @@ class ProductController extends Controller
         $product = $this->product->findOrFail($product);
         $categories = \App\Category::all(['id', 'name']);
 
-        return view('admin.products.edit', compact('product', 'categories'));
+        return view('admin.products.edit', compact('product','categories'));
     }
 
     /**
@@ -104,6 +106,12 @@ class ProductController extends Controller
         $product = $this->product->find($product);
         $product->update($data);
         $product->categories()->sync($data['categories']);
+
+        if ($request->hasFile('photos')){
+            $images = $this->imageUpload($request->file('photos'), 'image');
+            //inserção destas imagens na base
+            $product->photos()->createMany($images);
+        }
 
         flash('Product Atualizado com Sucesso')->success();
 
@@ -127,12 +135,4 @@ class ProductController extends Controller
         return redirect()->route('admin.products.index');
     }
 
-    private function imageUpload(Request $request, $imageColumn){
-        $images = $request->file('photos');
-        $uploadImages = [];
-        foreach ($images as $image){
-            $uploadImages[] = [$imageColumn => $image->store('products', 'public')];
-        }
-        return $uploadImages;
-    }
 }
