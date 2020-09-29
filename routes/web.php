@@ -12,10 +12,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
+Route::get('/product/{slug}', 'HomeController@single')->name('product.single');
 
+Route::prefix('cart')->name('cart.')->group(function (){
+    Route::get('/', 'CartController@index')->name('index');
+    Route::post('add', 'CartController@add')->name('add');
+    Route::get('remove/{slug}', 'CartController@remove')->name('remove');
+    Route::get('cancel', 'CartController@cancel')->name('cancel');
+});
+
+Route::prefix('checkout')->name('checkout.')->group(function (){
+    Route::get('/', 'CheckoutController@index')->name('index');
+    Route::post('/proccess', 'CheckoutController@proccess')->name('proccess');
+});
 Route::get('/model', function () {
 //    return \App\User::all();
     return \App\User::find(2);
@@ -40,8 +50,11 @@ Route::group(['middleware'=>['auth']], function (){
     });
 });
 
-
-
 Auth::routes();
+
+Route::get('/model', function () {
+//    return \App\User::all();
+    return \App\User::find(2);
+});
 
 //Route::get('/home', 'HomeController@index')->name('home');
