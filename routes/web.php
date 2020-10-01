@@ -14,6 +14,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index')->name('home');
 Route::get('/product/{slug}', 'HomeController@single')->name('product.single');
+Route::get('/category/{slug}', 'CategoryController@index')->name('category.single');
+Route::get('/store/{slug}', 'StoreController@index')->name('store.single');
 
 Route::prefix('cart')->name('cart.')->group(function (){
     Route::get('/', 'CartController@index')->name('index');
@@ -25,6 +27,7 @@ Route::prefix('cart')->name('cart.')->group(function (){
 Route::prefix('checkout')->name('checkout.')->group(function (){
     Route::get('/', 'CheckoutController@index')->name('index');
     Route::post('/proccess', 'CheckoutController@proccess')->name('proccess');
+    Route::get('/thanks', 'CheckoutController@thanks')->name('thanks');
 });
 Route::get('/model', function () {
 //    return \App\User::all();

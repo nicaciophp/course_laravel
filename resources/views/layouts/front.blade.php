@@ -14,6 +14,7 @@
             margin-bottom: 40px;
         }
     </style>
+    @yield('stylesheets')
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light" style="margin-bottom: 40px;">
@@ -29,6 +30,12 @@
             <li class="nav-item @if(request()->is('/')) active @endif">
                 <a class="nav-link" href="{{route('home')}}">Home <span class="sr-only">(current)</span></a>
             </li>
+
+            @foreach($categories as $categopry)
+                <li class="nav-item @if(request()->is('category/' . $categopry->slug)) active @endif">
+                    <a class="nav-link" href="{{route('category.single', ['slug' => $categopry->slug])}}">{{$categopry->name}}</a>
+                </li>
+                @endforeach
         </ul>
 
 {{--        @auth--}}
