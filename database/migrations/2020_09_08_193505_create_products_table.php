@@ -23,7 +23,8 @@ class CreateProductsTable extends Migration
             $table->string('slug');
             $table->timestamps();
 
-            $table->foreign('store_id')->references('id')->on('stores');
+            //onDelete('cascate') deleta todas as relações com loja.
+            $table->foreign('store_id')->references('id')->on('stores')->onDelete('cascade');
         });
     }
 

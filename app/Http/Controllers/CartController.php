@@ -9,12 +9,21 @@ class CartController extends Controller
     public function index()
     {
         $cart = session()->has('cart') ? session()->get('cart') : [];
-
+//dd($cart);
         return view('cart', compact('cart'));
     }
     public function add(Request $request)
     {
-        $product = $request->get('product');
+        //dados do formulario
+        $productData = $request->get('product');
+        //dados do banco
+        $product = \App\Product::whereSlug($productData['slug']);
+        //valida o slug e a quantidade de produtos
+        if (!$product->count() || $productData['amount'] <= 0)
+            return redirect()->route('home');
+        //valida para o valor real ir para o carrinho
+        $product = array_merge($productData,
+                                $product->first(['id', 'name', 'price', 'store_id'])->toArray());
 
         if (session()->has('cart')){
             $products = session()->get('cart');

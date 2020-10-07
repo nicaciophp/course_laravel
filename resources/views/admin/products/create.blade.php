@@ -28,7 +28,7 @@
             <label for="">Conteúdo</label>
             <textarea name="body" id="" cols="30" rows="10"
                       class="form-control @error('body') is-invalid @enderror">{{old('body')}}</textarea>
-            @error('body')
+            @error('body')/home/nicacio/atlantidaglobal
             <div class="invalid-feedback">
                 {{$message}}
             </div>
@@ -37,7 +37,7 @@
         <div class="form-group">
             <label for="">Preço</label>
             <input type="text" name="price" class="form-control @error('price') is-invalid @enderror"
-                   value="{{old('price')}}">
+                   value="{{old('price')}}" id="price">
             @error('price')
             <div class="invalid-feedback">
                 {{$message}}
@@ -46,16 +46,17 @@
         </div>
         <div class="form-group">
             <label for="">Categorias</label>
-            <select name="categories[]" id="" multiple class="form-control">
+            <select name="categories[]" multiple class="form-control">
                 @foreach($categories as $category)
                     <option value="{{$category->id}}">{{$category->name}}</option>
                 @endforeach
+{{--                {{dd($categories)}}--}}
             </select>
         </div>
         <div class="form-group">
             <label for="">Fotos do Produto</label>
             <input type="file" class="form-control @error('photos.*') is-invalid @enderror" name="photos[]" multiple>
-            @error('photos.*')
+            @error('photos.*')true
             <div class="invalid-feedback">
                 {{$message}}
             </div>
@@ -68,4 +69,11 @@
         </div>
     </form>
 
+@endsection
+
+@section('scripts')
+    <script src="https://cdn.rawgit.com/plentz/jquery-maskmoney/master/dist/jquery.maskMoney.min.js"></script>
+    <script>
+        $('#price').maskMoney({prefix: '', allowNegative: false, thousands: '.', decimal: ','});
+    </script>
 @endsection

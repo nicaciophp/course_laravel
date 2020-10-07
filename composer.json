@@ -15,6 +15,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "1.2.*",
         "pagseguro/pagseguro-php-sdk": "^6.0",
+        "ramsey/uuid": "3.*",
         "spatie/laravel-sluggable": "2.3"
     },
     "require-dev": {
@@ -41,7 +42,8 @@
         "classmap": [
             "database/seeds",
             "database/factories"
-        ]
+        ],
+        "files": ["helpers/functions.php"]
     },
     "autoload-dev": {
         "psr-4": {

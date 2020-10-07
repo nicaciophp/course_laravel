@@ -5,6 +5,8 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Sluggable\HasSlug;
 use Spatie\Sluggable\SlugOptions;
+use App\Notifications\StoreReceiveNewOrder;
+//use Illuminate\Notifications\Notifiable;
 
 class Store extends Model
 {
@@ -22,7 +24,7 @@ class Store extends Model
     }
 
     public function user(){
-        $this->belongsTo(User::class );
+        return $this->belongsTo(User::class );
     }
 
     public function products(){
@@ -31,6 +33,15 @@ class Store extends Model
 
     public function orders(){
         //HAS MANY (TEM MUITOS)
-        return $this->hasMany(UserOrder::class);
+        return $this->belongsToMany(UserOrder::class, 'order_store', null, 'order_id');
+    }
+
+    public function notifyStoreOwners(array $storesId = [])
+    {
+        $stores = $this->whereIn('id', $storesId)->get();
+
+        $stores->map(function ($store){
+            return $store->user;
+        })->each->notify(new StoreReceiveNewOrder());
     }
 }

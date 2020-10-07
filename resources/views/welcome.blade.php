@@ -31,7 +31,7 @@
         <div class="col-4">
             @if($store->logo)
                 <img src="{{asset('storage/'. $store->logo)}}" alt="Logo da Loja {{$store->name}}" class="img-fluid">
-                @else
+            @else
                 <img src="https://via.placeholder.com/250X100.png?text=logo" alt="Loja sem logo..." class="img-fluid">
             @endif
             <h3>{{$store->name}}</h3>

@@ -9,6 +9,8 @@ use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserRegisteredEmail;
 
 class RegisterController extends Controller
 {
@@ -69,13 +71,23 @@ class RegisterController extends Controller
             'name' => utf8_encode($data['name']),
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'role' => 'ROLE_USER'
         ]);
     }
 
     protected function registered(Request $request, $user)
     {
-        if (session()->has('cart')){
+        Mail::to($user->email)->send(new UserRegisteredEmail($user));
+
+        //se for dono de loja vai para o admin
+        if ($user->role == 'ROLE_OWNER')
+            return $this->redirect()->route('admin.stores.index');
+        //se for usuario e tiver produtos no carrinho vai para o checkout se não
+        //vai para o home
+        if ($user->role == "ROLE_USER" && session()->has('cart')){
             return redirect()->route('checkout.index');
+        } else{
+            return redirect()->route('home');
         }
         return null;
     }
